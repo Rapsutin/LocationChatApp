@@ -21,9 +21,8 @@ export default class Sender extends Component {
                     value={this.state.text}
                 />
                 <Button
-                    onPress={() => this.props.sendMessage(this.state.text, this.props.position)}
-                    disabled={!this.props.position || this.state.text == ''}
-                    title={this.props.position ? "Send" : "Waiting for position"}
+                    onPress={() => this.props.sendMessage(this.state.text)}
+                    title={"Send"}
                 />
             </View>
         );
