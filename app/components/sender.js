@@ -26,6 +26,7 @@ export default class Sender extends Component {
                             this.setState({text: ''})
                         }}
                     title={"Send"}
+                    disabled={this.props.disabled || !this.state.text}
                 />
             </View>
         );

@@ -16,10 +16,10 @@ export default class MessageWindow extends Component {
     }
 
     row(rowData, sectionID, rowID) {
-        color = rowID % 2 == 0 ? 'ivory': 'beige';
+        color = rowID % 2 == 0 ? 'ivory': 'floralwhite';
         return (
             <View style={{backgroundColor: color}}>
-                <Text>{JSON.stringify(rowData)}</Text>
+                <Text style={styles.messageText}>{rowData.text}</Text>
             </View>
         )
     }
@@ -28,7 +28,12 @@ export default class MessageWindow extends Component {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.ds = ds.cloneWithRows(this.props.messages);
         return(
-            <ListView enableEmptySections={true} style={styles.messageWindowBackground} dataSource={this.ds} renderRow={this.row}/>
+            <ListView
+                enableEmptySections={true}
+                style={styles.messageWindowBackground}
+                dataSource={this.ds}
+                renderRow={this.row}
+            />
         )
     }
 }
@@ -38,5 +43,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'ghostwhite',
         flex: 3,
     },
+    messageText: {
+        fontSize: 20,
+        padding: 10
+    }
 })
 
