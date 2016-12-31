@@ -21,7 +21,10 @@ export default class Sender extends Component {
                     value={this.state.text}
                 />
                 <Button
-                    onPress={() => this.props.sendMessage(this.state.text)}
+                    onPress={() => {
+                            this.props.sendMessage(this.state.text)
+                            this.setState({text: ''})
+                        }}
                     title={"Send"}
                 />
             </View>
@@ -30,10 +33,6 @@ export default class Sender extends Component {
 }
 
 const styles = StyleSheet.create({
-    messageWindowBackground: {
-        backgroundColor: 'ghostwhite',
-        flex: 3,
-    },
     message: {
     }
 })

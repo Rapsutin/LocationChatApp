@@ -38,7 +38,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'ghostwhite',
         flex: 3,
     },
-    message: {
-    }
 })
 
