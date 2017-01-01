@@ -21,8 +21,12 @@ export default class MessageContainer extends Component {
 
     componentWillReceiveProps(nextProps) {
         if(this.props.room != nextProps.room) {
-            this.setState({messages: []}, () => this.fetchMessages(nextProps.room))
+            this.clearMessagesAndFetchNew(nextProps.room)
         }
+    }
+
+    clearMessagesAndFetchNew(newRoom) {
+        this.setState({messages: []}, () => this.fetchMessages(newRoom))
     }
 
     componentWillUnmount() {
@@ -58,11 +62,11 @@ export default class MessageContainer extends Component {
     }
 
     render() {
-        let sendingAllowed = this.props.room
+        let sendingNotAllowed = !this.props.room
         return (
             <View style={{flex: 1}}>
                 <MessageWindow messages={this.state.messages}/>
-                <Sender disabled={!sendingAllowed} sendMessage={this.sendMessage.bind(this)}/>
+                <Sender disabled={sendingNotAllowed} sendMessage={this.sendMessage.bind(this)}/>
             </View>
         )
     }
