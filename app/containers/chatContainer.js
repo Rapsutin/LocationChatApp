@@ -21,13 +21,6 @@ export default class ChatContainer extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("UPDATING")
-        console.log(nextProps)
-        console.log(nextState)
-        return true
-    }
-
     componentWillReceiveProps(nextProps) {
         console.log(nextProps)
         if(this.props.location != nextProps.location) {
