@@ -30,7 +30,6 @@ export default class ChatContainer extends Component {
         return fetch(SERVER + "rooms/" + position.coords.latitude + "/" + position.coords.longitude)
             .then(response => response.json())
             .then(nextRooms => {
-                console.log(nextRooms)
                 this.setState({rooms: nextRooms})
                 if(!(this.state.selectedRoom in nextRooms)) {
                     this.changeRoom(null)
