@@ -13,7 +13,6 @@ export default class RoomPicker extends Component {
     render() {
         let roomRows = this.props.rooms.map(room => <Picker.Item label={room.room_name} value={room.id} key={room.id}/>);
         roomRows.unshift(<Picker.Item label="Select a nearby room" value={null} key={null}/>)
-        console.log(this.props.selectedRoom)
 
         if(roomRows.length > 1) {
             return(

@@ -14,7 +14,6 @@ export default class ChatContainer extends Component {
 
     constructor(props) {
         super(props)
-        console.log("Constructor called!")
         this.state = {
             selectedRoom: null,
             rooms: {}
@@ -22,7 +21,6 @@ export default class ChatContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         if(this.props.location != nextProps.location) {
             this.fetchRooms(nextProps.location)
         }

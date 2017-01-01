@@ -32,9 +32,3 @@ export default class Sender extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    message: {
-    }
-})
-
