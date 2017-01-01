@@ -4,10 +4,9 @@ import {
     View
 } from 'react-native'
 
+import Config from 'react-native-config'
 import MessageWindow from '../components/messagewindow'
 import Sender from '../components/sender'
-
-const SERVER = 'http://192.168.1.40:3000/';
 
 export default class MessageContainer extends Component {
 
@@ -35,7 +34,7 @@ export default class MessageContainer extends Component {
 
     fetchMessages(room) {
         if(room) {
-            return fetch(SERVER + "message/" + room)
+            return fetch(Config.SERVER + "message/" + room)
                 .then(response => response.json())
                 .then(messages => {
                     this.setState({messages: messages})
@@ -48,7 +47,7 @@ export default class MessageContainer extends Component {
 
     sendMessage(message) {
         if(this.props.room) {
-            fetch(SERVER + "message/" + this.props.room, {
+            fetch(Config.SERVER + "message/" + this.props.room, {
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({

@@ -5,10 +5,9 @@ import {
     Text
 
 } from 'react-native'
+import Config from 'react-native-config'
 import MessageContainer from './messageContainer'
 import RoomPicker from '../components/roomPicker'
-
-const SERVER = 'http://192.168.1.40:3000/';
 
 export default class ChatContainer extends Component {
 
@@ -27,7 +26,7 @@ export default class ChatContainer extends Component {
     }
 
     fetchRooms(position) {
-        return fetch(SERVER + "rooms/" + position.coords.latitude + "/" + position.coords.longitude)
+        return fetch(Config.SERVER + "rooms/" + position.coords.latitude + "/" + position.coords.longitude)
             .then(response => response.json())
             .then(nextRooms => {
                 this.setState({rooms: nextRooms})

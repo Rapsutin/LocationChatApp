@@ -11,7 +11,6 @@ import {
     InteractionManager
 } from 'react-native';
 import ChatContainer from './containers/chatContainer.js'
-/* const SERVER = 'http://ec2-52-211-250-0.eu-west-1.compute.amazonaws.com:3000/'*/
 
 export default class App extends Component {
     constructor(props) {
